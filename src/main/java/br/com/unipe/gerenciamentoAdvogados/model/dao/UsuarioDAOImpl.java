@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.unipe.gerenciamentoAdvogados.model.util.EntityManagerUtil;
 import br.com.unipe.gerenciamentoAdvogados.model.vo.Usuario;
 
-public class UsuarioDAOImpl {
+@Repository
+public class UsuarioDAOImpl implements UsuarioDAO {
 
 	public void create(Usuario usuario) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
@@ -57,19 +60,6 @@ public class UsuarioDAOImpl {
 		}
 	}
 
-	public Usuario findById(Long id) {
-		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
-		try {
-			em.getTransaction().begin();
-			return em.find(Usuario.class, id);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			em.close();
-		}
-		return null;
-	}
-
 	public List<Usuario> listAll() {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
@@ -81,6 +71,21 @@ public class UsuarioDAOImpl {
 			em.close();
 		}
 		return null;
+	}
+
+	@Override
+	public Usuario findById(Long id) {
+		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
+		try {
+			em.getTransaction().begin();
+			return em.find(Usuario.class, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return null;
+
 	}
 
 }

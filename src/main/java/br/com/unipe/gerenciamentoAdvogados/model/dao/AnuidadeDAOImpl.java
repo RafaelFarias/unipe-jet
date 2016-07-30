@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.unipe.gerenciamentoAdvogados.model.util.EntityManagerUtil;
 import br.com.unipe.gerenciamentoAdvogados.model.vo.Anuidade;
 
-public class AnuidadeDAOImpl {
+@Repository
+public class AnuidadeDAOImpl implements AnudiadeDAO {
 
 	public void create(Anuidade anuidade) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
@@ -26,8 +29,7 @@ public class AnuidadeDAOImpl {
 	}
 
 	public void update(Anuidade anuidade) {
-		EntityManager em = EntityManagerUtil.
-				getEntityManagerFactory().createEntityManager();
+		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
 			em.merge(anuidade);
@@ -41,7 +43,7 @@ public class AnuidadeDAOImpl {
 			em.close();
 		}
 	}
-	
+
 	public void delete(Anuidade anuidade) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {

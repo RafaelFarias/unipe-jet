@@ -4,5 +4,9 @@
 <html>
 <body>
 	Seja Bem-vindo
+
+	<br />
+	<a href="prepararListarAutorizacao">Listar Autorização</a><br/>
+	<a href="prepararListarUsuario">Listar Usuário</a>
 </body>
 </html>

@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.unipe.gerenciamentoAdvogados.model.util.EntityManagerUtil;
 import br.com.unipe.gerenciamentoAdvogados.model.vo.Evento;
 
-public class EventoDAOImpl {
+@Repository
+public class EventoDAOImpl implements EventoDAO{
 
 	public void create(Evento evento) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();

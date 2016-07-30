@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.unipe.gerenciamentoAdvogados.model.util.EntityManagerUtil;
 import br.com.unipe.gerenciamentoAdvogados.model.vo.Advogado;
 
-public class AdvogadoDAOImpl {
+@Repository
+public class AdvogadoDAOImpl implements AdvogadoDAO{
 
 	public void create(Advogado advogado) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();

@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.unipe.gerenciamentoAdvogados.model.util.EntityManagerUtil;
 import br.com.unipe.gerenciamentoAdvogados.model.vo.Autorizacao;
 
-public class AutorizacaoDAOImpl {
+@Repository
+public class AutorizacaoDAOImpl implements AutorizacaoDAO {
 
 	public void create(Autorizacao autorizacao) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
@@ -26,8 +29,7 @@ public class AutorizacaoDAOImpl {
 	}
 
 	public void update(Autorizacao autorizacao) {
-		EntityManager em = EntityManagerUtil.
-				getEntityManagerFactory().createEntityManager();
+		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
 			em.merge(autorizacao);
@@ -41,10 +43,9 @@ public class AutorizacaoDAOImpl {
 			em.close();
 		}
 	}
-	
+
 	public void update2(Autorizacao autorizacao) {
-		EntityManager em = EntityManagerUtil.
-				getEntityManagerFactory().createEntityManager();
+		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
 			Autorizacao authBD = em.find(Autorizacao.class, autorizacao.getId());
@@ -65,7 +66,7 @@ public class AutorizacaoDAOImpl {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.remove(autorizacao);
+			em.remove(em.contains(autorizacao) ? autorizacao : em.merge(autorizacao));
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
