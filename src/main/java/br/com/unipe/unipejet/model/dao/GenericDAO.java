@@ -1,4 +1,4 @@
-package br.com.unipe.gerenciamentoAdvogados.model.dao;
+package br.com.unipe.unipejet.model.dao;
 
 import java.io.Serializable;
 import java.util.List;

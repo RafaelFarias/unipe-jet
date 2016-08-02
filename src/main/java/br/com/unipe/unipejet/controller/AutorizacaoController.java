@@ -1,12 +1,12 @@
-package br.com.unipe.gerenciamentoAdvogados.controller;
+package br.com.unipe.unipejet.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.unipe.gerenciamentoAdvogados.model.dao.AutorizacaoDAO;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Autorizacao;
+import br.com.unipe.unipejet.model.dao.AutorizacaoDAO;
+import br.com.unipe.unipejet.model.vo.Autorizacao;
 
 @Controller
 public class AutorizacaoController {

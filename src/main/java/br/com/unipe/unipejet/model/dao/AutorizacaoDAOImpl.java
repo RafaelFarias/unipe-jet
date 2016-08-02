@@ -1,4 +1,4 @@
-package br.com.unipe.gerenciamentoAdvogados.model.dao;
+package br.com.unipe.unipejet.model.dao;
 
 import java.util.List;
 
@@ -6,17 +6,17 @@ import javax.persistence.EntityManager;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.unipe.gerenciamentoAdvogados.model.util.EntityManagerUtil;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Anuidade;
+import br.com.unipe.unipejet.model.util.EntityManagerUtil;
+import br.com.unipe.unipejet.model.vo.Autorizacao;
 
 @Repository
-public class AnuidadeDAOImpl implements AnudiadeDAO {
+public class AutorizacaoDAOImpl implements AutorizacaoDAO {
 
-	public void create(Anuidade anuidade) {
+	public void create(Autorizacao autorizacao) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(anuidade);
+			em.persist(autorizacao);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -28,11 +28,11 @@ public class AnuidadeDAOImpl implements AnudiadeDAO {
 		}
 	}
 
-	public void update(Anuidade anuidade) {
+	public void update(Autorizacao autorizacao) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.merge(anuidade);
+			em.merge(autorizacao);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -44,11 +44,13 @@ public class AnuidadeDAOImpl implements AnudiadeDAO {
 		}
 	}
 
-	public void delete(Anuidade anuidade) {
+	public void update2(Autorizacao autorizacao) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.remove(anuidade);
+			Autorizacao authBD = em.find(Autorizacao.class, autorizacao.getId());
+			authBD.setCreatedOn(autorizacao.getCreatedOn());
+			authBD.setNome(autorizacao.getNome());
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -60,11 +62,27 @@ public class AnuidadeDAOImpl implements AnudiadeDAO {
 		}
 	}
 
-	public Anuidade findById(Long id) {
+	public void delete(Autorizacao autorizacao) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			return em.find(Anuidade.class, id);
+			em.remove(em.contains(autorizacao) ? autorizacao : em.merge(autorizacao));
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+
+	public Autorizacao findById(Long id) {
+		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
+		try {
+			em.getTransaction().begin();
+			return em.find(Autorizacao.class, id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -73,11 +91,11 @@ public class AnuidadeDAOImpl implements AnudiadeDAO {
 		return null;
 	}
 
-	public List<Anuidade> listAll() {
+	public List<Autorizacao> listAll() {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			return em.createQuery("From Anuidade a").getResultList();
+			return em.createQuery("From Autorizacao a").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -1,15 +1,13 @@
-package br.com.unipe.gerenciamentoAdvogados.model.util;
+package br.com.unipe.unipejet.model.util;
 
 import java.io.Serializable;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Advogado;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Anuidade;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Autorizacao;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Evento;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Usuario;
+import br.com.unipe.unipejet.model.vo.Autorizacao;
+import br.com.unipe.unipejet.model.vo.Passageiro;
+import br.com.unipe.unipejet.model.vo.Voo;
 
 public class HibernateUtil implements Serializable {
 
@@ -19,10 +17,8 @@ public class HibernateUtil implements Serializable {
 		if (sessionFactory == null) {
 			sessionFactory = new Configuration()
 					.addAnnotatedClass(Autorizacao.class)
-					.addAnnotatedClass(Usuario.class)
-					.addAnnotatedClass(Advogado.class)
-					.addAnnotatedClass(Anuidade.class)
-					.addAnnotatedClass(Evento.class).
+					.addAnnotatedClass(Passageiro.class)
+					.addAnnotatedClass(Voo.class).
 					configure().buildSessionFactory();
 		}
 

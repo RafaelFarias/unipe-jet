@@ -1,10 +1,10 @@
-package br.com.unipe.gerenciamentoAdvogados.model.main;
+package br.com.unipe.unipejet.model.main;
 
 import java.util.Date;
 import java.util.List;
 
-import br.com.unipe.gerenciamentoAdvogados.model.dao.AutorizacaoDAOImpl;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Autorizacao;
+import br.com.unipe.unipejet.model.dao.AutorizacaoDAOImpl;
+import br.com.unipe.unipejet.model.vo.Autorizacao;
 
 public class Executar {
 

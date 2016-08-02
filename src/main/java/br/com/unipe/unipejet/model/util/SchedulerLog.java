@@ -1,11 +1,11 @@
-package br.com.unipe.gerenciamentoAdvogados.model.util;
+package br.com.unipe.unipejet.model.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import br.com.unipe.gerenciamentoAdvogados.model.dao.AutorizacaoDAO;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Autorizacao;
+import br.com.unipe.unipejet.model.dao.AutorizacaoDAO;
+import br.com.unipe.unipejet.model.vo.Autorizacao;
 
 @Component
 public class SchedulerLog {

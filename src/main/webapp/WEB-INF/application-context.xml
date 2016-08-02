@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<context:component-scan base-package="br.com.unipe.gerenciamentoAdvogados">
+	<context:component-scan base-package="br.com.unipe.unipejet">
 	</context:component-scan>
 
 	<mvc:annotation-driven />

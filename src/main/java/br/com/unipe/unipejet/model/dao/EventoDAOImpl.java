@@ -1,4 +1,4 @@
-package br.com.unipe.gerenciamentoAdvogados.model.dao;
+package br.com.unipe.unipejet.model.dao;
 
 import java.util.List;
 
@@ -6,17 +6,17 @@ import javax.persistence.EntityManager;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.unipe.gerenciamentoAdvogados.model.util.EntityManagerUtil;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Usuario;
+import br.com.unipe.unipejet.model.util.EntityManagerUtil;
+import br.com.unipe.unipejet.model.vo.Voo;
 
 @Repository
-public class UsuarioDAOImpl implements UsuarioDAO {
+public class EventoDAOImpl implements EventoDAO{
 
-	public void create(Usuario usuario) {
+	public void create(Voo evento) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(usuario);
+			em.persist(evento);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -28,11 +28,28 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
-	public void update(Usuario usuario) {
+	public void update(Voo evento) {
+		EntityManager em = EntityManagerUtil.
+				getEntityManagerFactory().createEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.merge(evento);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+	
+	public void delete(Voo evento) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.merge(usuario);
+			em.remove(evento);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -44,27 +61,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
-	public void delete(Usuario usuario) {
+	public Voo findById(Long id) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.remove(usuario);
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			if (em.getTransaction().isActive()) {
-				em.getTransaction().rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			em.close();
-		}
-	}
-
-	public List<Usuario> listAll() {
-		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
-		try {
-			em.getTransaction().begin();
-			return em.createQuery("From Usuario a").getResultList();
+			return em.find(Voo.class, id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -73,19 +74,17 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return null;
 	}
 
-	@Override
-	public Usuario findById(Long id) {
+	public List<Voo> listAll() {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			return em.find(Usuario.class, id);
+			return em.createQuery("From Evento a").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			em.close();
 		}
 		return null;
-
 	}
 
 }

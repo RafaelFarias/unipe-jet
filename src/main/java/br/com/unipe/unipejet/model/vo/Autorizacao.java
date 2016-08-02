@@ -1,4 +1,4 @@
-package br.com.unipe.gerenciamentoAdvogados.model.vo;
+package br.com.unipe.unipejet.model.vo;
 
 import javax.persistence.Entity;
 

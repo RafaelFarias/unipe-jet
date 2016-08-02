@@ -1,4 +1,4 @@
-package br.com.unipe.gerenciamentoAdvogados.model.util;
+package br.com.unipe.unipejet.model.util;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -9,7 +9,7 @@ public class EntityManagerUtil {
 	public static EntityManagerFactory getEntityManagerFactory() {
 		if (entityManagerFactory == null) {
 			entityManagerFactory = Persistence
-					.createEntityManagerFactory("GerenciamentoDeAdvogados");
+					.createEntityManagerFactory("UnipeJet");
 		}
 
 		return entityManagerFactory;

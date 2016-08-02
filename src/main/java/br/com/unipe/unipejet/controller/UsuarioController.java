@@ -1,32 +1,32 @@
-package br.com.unipe.gerenciamentoAdvogados.controller;
+package br.com.unipe.unipejet.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.unipe.gerenciamentoAdvogados.model.dao.AutorizacaoDAO;
-import br.com.unipe.gerenciamentoAdvogados.model.dao.UsuarioDAO;
-import br.com.unipe.gerenciamentoAdvogados.model.vo.Usuario;
+import br.com.unipe.unipejet.model.dao.AutorizacaoDAO;
+import br.com.unipe.unipejet.model.dao.PassageiroDAO;
+import br.com.unipe.unipejet.model.vo.Passageiro;
 
 @Controller
 public class UsuarioController {
 	
 	@Autowired
-	private UsuarioDAO usuarioDAO;
+	private PassageiroDAO usuarioDAO;
 	
 	@Autowired
 	private AutorizacaoDAO autorizacaoDAO;
 	
 	@RequestMapping("/prepararCadastroUsuario")
 	public String prepararCadastro(Model model){
-		model.addAttribute("usuario", new Usuario());
+		model.addAttribute("usuario", new Passageiro());
 		model.addAttribute("autorizacoes", autorizacaoDAO.listAll());
 		return "/cadastroUsuario";
 	}
 	
 	@RequestMapping("/addUsuario")
-	public String cadastro(Usuario usuario){
+	public String cadastro(Passageiro usuario){
 		usuarioDAO.create(usuario);
 		return "redirect:/prepararListarUsuario";
 	}
@@ -46,13 +46,13 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/updateActionUsuario")
-	public String update(Usuario usuario, Model model){
+	public String update(Passageiro usuario, Model model){
 		usuarioDAO.update(usuario);
 		return "redirect:/prepararListarUsuario";
 	}
 	
 	@RequestMapping("/removerUsuario")
-	public String remover(Usuario id){
+	public String remover(Passageiro id){
 		usuarioDAO.delete(id);
 		return "redirect:/prepararListarUsuario";
 	}
