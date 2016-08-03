@@ -3,20 +3,20 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <body>
-	<h2>Cadastro de Usuários</h2>
-	<a href="prepararListarUsuario">Voltar</a><br/>
-	<form:form action="addUsuario" method="POST"
-		modelAttribute="usuario">
+	<h2>Cadastro de Passageiros</h2>
+	<a href="prepararListarPassageiro">Voltar</a><br/>
+	<form:form action="addPassageiro" method="POST"
+		modelAttribute="passageiro">
 		Nome:
 		<form:input path="nome" /><br/>
-		Email:
-		<form:input path="email" /><br/>
-		Telefone:
-		<form:input path="telefone" /><br/>
-		Username:
-		<form:input path="username" /><br/>
+		Rg:
+		<form:input path="rg" /><br/>
+		Cpf:
+		<form:input path="cpf" /><br/>
+		Login:
+		<form:input path="login" /><br/>
 		Senha:
-		<form:password path="password"/><br />
+		<form:password path="senha"/><br />
 		
 		Autorizacao:
 		<form:select path="autorizacao.id" items="${autorizacoes}"

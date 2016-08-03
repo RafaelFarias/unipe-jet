@@ -23,8 +23,8 @@ public class Passageiro extends EntityMaster {
 	private String rg;
 	private String cpf;
 	private String numCartaoMilha;	
-	private String username;
-	private String password;
+	private String login;
+	private String senha;
 	
 	@ManyToMany(targetEntity = Voo.class)
 	@JoinTable(name = "voo_passageiro", joinColumns = @JoinColumn(name = "passageiro_id"), inverseJoinColumns = @JoinColumn(name = "voo_id"))
@@ -47,20 +47,20 @@ public class Passageiro extends EntityMaster {
 		this.nome = nome;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public Autorizacao getAutorizacao() {

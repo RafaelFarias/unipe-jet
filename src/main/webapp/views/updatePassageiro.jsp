@@ -3,10 +3,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <body>
-	<h2>Atualização de Usuário</h2>
-	<a href="prepararListarUsuario">Voltar</a><br/>
-	<form:form action="updateActionUsuario" method="POST"
-		modelAttribute="usuario">
+	<h2>Atualização de Passageiro</h2>
+	<a href="prepararListarPassageiro">Voltar</a><br/>
+	<form:form action="updateActionPassageiro" method="POST"
+		modelAttribute="passageiro">
 		<form:hidden path="id" />
 		Nome:
 		<form:input path="nome" />
@@ -17,8 +17,8 @@
 		Telefone:
 		<form:input path="telefone" />
 		<br />
-		Username:
-		<form:input path="username" />
+		Login:
+		<form:input path="login" />
 		<br />
 		
 		Autorizacao:

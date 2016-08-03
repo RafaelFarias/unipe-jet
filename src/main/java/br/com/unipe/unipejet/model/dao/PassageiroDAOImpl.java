@@ -28,11 +28,11 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		}
 	}
 
-	public void update(Passageiro usuario) {
+	public void update(Passageiro passageiro) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.merge(usuario);
+			em.merge(passageiro);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -44,11 +44,11 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		}
 	}
 
-	public void delete(Passageiro usuario) {
+	public void delete(Passageiro passageiro) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.remove(usuario);
+			em.remove(passageiro);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -64,7 +64,7 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			return em.createQuery("From Usuario a").getResultList();
+			return em.createQuery("From Passageiro a").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
