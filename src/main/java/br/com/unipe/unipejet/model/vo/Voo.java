@@ -23,8 +23,8 @@ public class Voo extends EntityMaster {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar data;
 
-	@ManyToMany(targetEntity = Passageiro.class, mappedBy="voos")
-	private Set<Passageiro> passageiros;
+	@ManyToMany(targetEntity = Usuario.class, mappedBy="voos")
+	private Set<Usuario> usuarios;
 
 	public Calendar getData() {
 		return data;
@@ -34,12 +34,12 @@ public class Voo extends EntityMaster {
 		this.data = data;
 	}
 
-	public Set<Passageiro> getPassageiros() {
-		return passageiros;
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setPassageiros(Set<Passageiro> passageiros) {
-		this.passageiros = passageiros;
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	public String getNumVoo() {

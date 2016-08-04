@@ -55,9 +55,9 @@
 		<sec:authentication-provider>
 			<sec:jdbc-user-service data-source-ref="postgresDataSource"
 				users-by-username-query="SELECT u.login as login, 
-				u.senha as senha, true FROM Passageiro u WHERE u.login=?"
+				u.senha as senha, true FROM Usuario u WHERE u.login=?"
 				authorities-by-username-query="SELECT u.login as login, 
-				CONCAT('ROLE_',a.nome) as authority FROM Autorizacao a, Passageiro u 
+				CONCAT('ROLE_',a.nome) as authority FROM Autorizacao a, Usuario u 
 				WHERE u.login=? and u.autorizacao_id = a.id" />
 		</sec:authentication-provider>
 	</sec:authentication-manager>

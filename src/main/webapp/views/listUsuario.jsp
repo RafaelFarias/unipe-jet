@@ -3,14 +3,15 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <body>
-	<a href="prepararCadastroPassageiro">Cadastro de Passageiro</a>
+	<a href="prepararCadastroUsuario">Cadastro de Usuario</a>
 	<br />
-	<h2>PASSAGEIROS</h2>
+	<h2>Usuários</h2>
 	<br/>
 	<table>
 		<tr>
 			<th>Id</th>
 			<th>Nome</th>
+			<th>Email</th>
 			<th>RG</th>
 			<th>CPF</th>
 			<th>Login</th>
@@ -18,16 +19,17 @@
 			<th>Atualizar</th>
 			<th>Remover</th>
 		</tr>
-		<c:forEach items="${passageiroList}" var="user">
+		<c:forEach items="${usuarioList}" var="user">
 			<tr>
 				<td>${user.id}</td>
 				<td>${user.nome}</td>
+				<td>${user.email}</td>
 				<td>${user.rg}</td>
 				<td>${user.cpf}</td>
 				<td>${user.login}</td>
 				<td>${user.senha}</td>
-				<td><a href="prepararAtualizarPassageiro?id=${user.id}">Atualizar</a>
-				<td><a href="removerPassageiro?id=${user.id}">Remover</a>
+				<td><a href="prepararAtualizarUsuario?id=${user.id}">Atualizar</a>
+				<td><a href="removerUsuario?id=${user.id}">Remover</a>
 			</tr>
 		</c:forEach>
 	</table>

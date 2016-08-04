@@ -8,7 +8,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>br.com.unipe.unipejet.model.vo.EntityMaster</class>
 		<class>br.com.unipe.unipejet.model.vo.Autorizacao</class>
-		<class>br.com.unipe.unipejet.model.vo.Passageiro</class>
+		<class>br.com.unipe.unipejet.model.vo.Usuario</class>
 		<class>br.com.unipe.unipejet.model.vo.Voo</class>
 		
 		<properties>

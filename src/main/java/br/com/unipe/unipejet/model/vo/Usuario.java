@@ -17,9 +17,10 @@ import javax.persistence.TemporalType;
 import br.com.unipe.unipejet.model.TipoPessoa;
 
 @Entity
-public class Passageiro extends EntityMaster {
+public class Usuario extends EntityMaster {
 
 	private String nome;
+	private String email;
 	private String rg;
 	private String cpf;
 	private String numCartaoMilha;	
@@ -27,7 +28,7 @@ public class Passageiro extends EntityMaster {
 	private String senha;
 	
 	@ManyToMany(targetEntity = Voo.class)
-	@JoinTable(name = "voo_passageiro", joinColumns = @JoinColumn(name = "passageiro_id"), inverseJoinColumns = @JoinColumn(name = "voo_id"))
+	@JoinTable(name = "voo_usuario", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "voo_id"))
 	private Set<Voo> voos;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -101,5 +102,13 @@ public class Passageiro extends EntityMaster {
 
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

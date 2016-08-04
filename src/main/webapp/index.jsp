@@ -7,6 +7,7 @@
 
 	<br />
 	<a href="prepararListarAutorizacao">Listar Autorização</a><br/>
-	<a href="prepararListarPassageiro">Listar Passageiro</a>
+	<a href="prepararListarUsuario">Listar Usuario</a><br/>
+	<a href="prepararListarVoo">Listar Voos</a>
 </body>
 </html>

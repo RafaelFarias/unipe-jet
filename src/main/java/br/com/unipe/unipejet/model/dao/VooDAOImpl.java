@@ -7,16 +7,16 @@ import javax.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 
 import br.com.unipe.unipejet.model.util.EntityManagerUtil;
-import br.com.unipe.unipejet.model.vo.Passageiro;
+import br.com.unipe.unipejet.model.vo.Voo;
 
 @Repository
-public class PassageiroDAOImpl implements PassageiroDAO {
+public class VooDAOImpl implements VooDAO {
 
-	public void create(Passageiro passageiro) {
+	public void create(Voo voo) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(passageiro);
+			em.persist(voo);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -28,11 +28,11 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		}
 	}
 
-	public void update(Passageiro passageiro) {
+	public void update(Voo voo) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.merge(passageiro);
+			em.merge(voo);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -44,11 +44,11 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		}
 	}
 
-	public void delete(Passageiro passageiro) {
+	public void delete(Voo voo) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.remove(passageiro);
+			em.remove(voo);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -60,11 +60,11 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		}
 	}
 
-	public List<Passageiro> listAll() {
+	public List<Voo> listAll() {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			return em.createQuery("From Passageiro a").getResultList();
+			return em.createQuery("From Voo a").getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -74,11 +74,11 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 	}
 
 	@Override
-	public Passageiro findById(Long id) {
+	public Voo findById(Long id) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			return em.find(Passageiro.class, id);
+			return em.find(Voo.class, id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
