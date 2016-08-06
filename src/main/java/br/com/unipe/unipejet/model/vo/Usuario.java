@@ -1,7 +1,6 @@
 package br.com.unipe.unipejet.model.vo;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -13,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import br.com.unipe.unipejet.model.TipoPessoa;
 
@@ -31,6 +32,7 @@ public class Usuario extends EntityMaster {
 	@JoinTable(name = "voo_usuario", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "voo_id"))
 	private Set<Voo> voos;
 
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataNascimento;
 

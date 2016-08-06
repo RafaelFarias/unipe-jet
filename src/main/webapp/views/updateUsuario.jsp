@@ -14,11 +14,16 @@
 		Email:
 		<form:input path="email" />
 		<br />
-		Telefone:
-		<form:input path="telefone" />
+		RG:
+		<form:input path="rg" />
+		CPF:
+		<form:input path="cpf" />
 		<br />
 		Login:
 		<form:input path="login" />
+		<br />
+		Senha:
+		<form:password path="senha"/>
 		<br />
 		
 		Autorizacao:

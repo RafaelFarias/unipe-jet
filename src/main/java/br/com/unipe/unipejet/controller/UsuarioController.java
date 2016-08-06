@@ -1,8 +1,14 @@
 package br.com.unipe.unipejet.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.unipe.unipejet.model.dao.AutorizacaoDAO;
@@ -18,11 +24,27 @@ public class UsuarioController {
 	@Autowired
 	private AutorizacaoDAO autorizacaoDAO;
 	
+	@InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        sdf.setLenient(true);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
+    }
+	
 	@RequestMapping("/prepararCadastroUsuario")
 	public String prepararCadastro(Model model){
 		model.addAttribute("usuario", new Usuario());
 		model.addAttribute("autorizacoes", autorizacaoDAO.listAll());
 		return "/cadastroUsuario";
+	}
+	
+	@RequestMapping("/loginUsuario")
+	public String login(String login, String senha){		
+		Usuario usuarioLogado = usuarioDAO.login(login, senha);
+		if(usuarioLogado == null){
+			return "redirect:/";
+		}
+		return "redirect:/prepararListarVoo";
 	}
 	
 	@RequestMapping("/addUsuario")

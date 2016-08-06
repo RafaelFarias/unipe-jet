@@ -3,11 +3,19 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <body>
-	Seja Bem-vindo
-
+	Unipe-Jet	
 	<br />
-	<a href="prepararListarAutorizacao">Listar Autorização</a><br/>
-	<a href="prepararListarUsuario">Listar Usuario</a><br/>
-	<a href="prepararListarVoo">Listar Voos</a>
+	<form:form action="loginUsuario" method="POST">
+		
+		Login:
+		<input type="text" name="login" /><br/>
+		Senha:
+		<input type="text" name="senha"/><br />
+		
+		<input type="submit" value="Enviar" />
+		
+	</form:form>
+		
+	<a href="prepararCadastroUsuario">Cadastre-se</a><br/>
 </body>
 </html>

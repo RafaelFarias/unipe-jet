@@ -1,13 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
 <html>
 
 <script>
-$("#TipoDocumentoCombo").change(function(){
-	alert('oi')
-    var x=$(this).val();
-});
+function mascaraData(campoData){
+    var data = campoData.value;
+    if (data.length == 2){
+        data = data + '/';
+        campoData.value = data;
+		return true;              
+    }
+    if (data.length == 5){
+        data = data + '/';
+        campoData.value = data;
+        return true;
+    }
+}
 </script>
 
 <body>
@@ -33,6 +44,9 @@ $("#TipoDocumentoCombo").change(function(){
 			CPF:
 			<form:input path="cpf" /><br/>
 		</c:if>
+		Data de Nascimento:				
+		<form:input id="dataNascimentoInput" OnKeyUp="mascaraData(this);" path="dataNascimento" maxlength="10"/>
+		<br/>
 		Login:
 		<form:input path="login" /><br/>
 		Senha:

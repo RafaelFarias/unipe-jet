@@ -59,6 +59,20 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			em.close();
 		}
 	}
+	
+	public Usuario login(String login, String senha) {
+		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
+		try {
+			em.getTransaction().begin();
+			return (Usuario) em.createQuery("From Usuario a Where a.login='" + login + 
+					"' and a.senha='" + senha + "'").getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return null;
+	}
 
 	public List<Usuario> listAll() {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
