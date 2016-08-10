@@ -4,6 +4,7 @@
 <html>
 <body>
 	<a href="prepararCadastroUsuario">Cadastro de Usuario</a>
+	<br/>
 	<a href="prepararListarVoo">Voos</a>
 	<br />
 	<h2>Usuários</h2>
