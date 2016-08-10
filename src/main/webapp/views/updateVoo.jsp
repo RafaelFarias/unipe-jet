@@ -7,7 +7,7 @@
 	<a href="prepararListarVoo">Voltar</a><br/>
 	<form:form action="updateActionVoo" method="POST"
 		modelAttribute="voo">
-		<form:hidden path="numVoo" />
+		<form:hidden path="id" />
 		Cidade de origem:
 		<form:input path="cidadeOrigem" />
 		<br />

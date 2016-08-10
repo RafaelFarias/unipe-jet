@@ -30,8 +30,8 @@
 				<td>${voo.distancia}</td>
 				<td>${voo.preco}</td>
 				<td>${voo.capacidade}</td>
-				<td><a href="prepararAtualizarVoo?numVoo=${voo.numVoo}">Atualizar</a>
-				<td><a href="removerVoo?numVoo=${voo.numVoo}">Remover</a>
+				<td><a href="prepararAtualizarVoo?id=${voo.id}">Atualizar</a>
+				<td><a href="removerVoo?id=${voo.id}">Remover</a>
 			</tr>
 		</c:forEach>
 	</table>

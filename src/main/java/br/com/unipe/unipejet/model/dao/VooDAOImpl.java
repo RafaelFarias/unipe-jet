@@ -48,7 +48,7 @@ public class VooDAOImpl implements VooDAO {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.remove(voo);
+			em.remove(em.contains(voo) ? voo : em.merge(voo));
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {

@@ -6,14 +6,23 @@
 <html>
 
 <script>
-function mascaraData(campoData){
+function mascaraData(campoData, e){
     var data = campoData.value;
-    if (data.length == 2){
+    
+    if(window.event) { // IE                    
+        keynum = e.keyCode;
+    } else if(e.which){ // Netscape/Firefox/Opera                   
+        keynum = e.which;
+    }
+    
+    keypressed = String.fromCharCode(keynum)
+    
+    if (keynum != 8 && data.length == 2){
         data = data + '/';
         campoData.value = data;
 		return true;              
     }
-    if (data.length == 5){
+    if (keynum != 8 && data.length == 5){
         data = data + '/';
         campoData.value = data;
         return true;
@@ -45,7 +54,7 @@ function mascaraData(campoData){
 			<form:input path="cpf" /><br/>
 		</c:if>
 		Data de Nascimento:				
-		<form:input id="dataNascimentoInput" OnKeyUp="mascaraData(this);" path="dataNascimento" maxlength="10"/>
+		<form:input id="dataNascimentoInput" OnKeyUp="mascaraData(this,event);" path="dataNascimento" maxlength="10"/>
 		<br/>
 		Login:
 		<form:input path="login" /><br/>

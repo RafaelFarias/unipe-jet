@@ -4,6 +4,7 @@
 <html>
 <body>
 	<a href="prepararCadastroUsuario">Cadastro de Usuario</a>
+	<a href="prepararListarVoo">Voos</a>
 	<br />
 	<h2>Usuários</h2>
 	<br/>
@@ -12,6 +13,7 @@
 			<th>Id</th>
 			<th>Nome</th>
 			<th>Email</th>
+			<th>Data de Nascimento</th>
 			<th>RG</th>
 			<th>CPF</th>
 			<th>Login</th>
@@ -24,6 +26,7 @@
 				<td>${user.id}</td>
 				<td>${user.nome}</td>
 				<td>${user.email}</td>
+				<td>${user.getDataNascimentoStr()}</td>
 				<td>${user.rg}</td>
 				<td>${user.cpf}</td>
 				<td>${user.login}</td>

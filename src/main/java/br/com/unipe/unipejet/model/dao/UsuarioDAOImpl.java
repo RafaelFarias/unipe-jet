@@ -48,7 +48,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.remove(usuario);
+			em.remove(em.contains(usuario) ? usuario : em.merge(usuario));
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {

@@ -14,6 +14,9 @@
 		Email:
 		<form:input path="email" />
 		<br />
+		Data de Nascimento:
+		<form:input path="dataNascimento" />
+		<br />
 		RG:
 		<form:input path="rg" />
 		CPF:

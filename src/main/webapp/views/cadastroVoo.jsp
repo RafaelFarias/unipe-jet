@@ -15,13 +15,13 @@
 		Hora da partida:
 		<form:input path="horaPartida" /><br/>
 		Duração:
-		<form:password path="duracao"/><br />
+		<form:input path="duracao"/><br />
 		Distância:
-		<form:password path="distancia"/><br />
+		<form:input path="distancia"/><br />
 		Preço:
-		<form:password path="preco"/><br />
+		<form:input path="preco"/><br />
 		Capacidade:
-		<form:password path="capacidade"/><br />
+		<form:input path="capacidade"/><br />
 				
 		<input type="submit" value="Enviar" />
 	</form:form>

@@ -1,6 +1,8 @@
 package br.com.unipe.unipejet.model.vo;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -98,8 +100,17 @@ public class Usuario extends EntityMaster {
 		this.numCartaoMilha = numCartaoMilha;
 	}
 
-	public Calendar getDataNascimento() {
+	public Calendar getDataNascimento() {				
 		return dataNascimento;
+	}
+	
+	public String getDataNascimentoStr() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		String dataNascimentoStr = "";
+		if(dataNascimento != null){
+			dataNascimentoStr = sdf.format(dataNascimento.getTime());
+		}
+		return dataNascimentoStr;
 	}
 
 	public void setDataNascimento(Calendar dataNascimento) {
