@@ -7,6 +7,8 @@
 	<br/>
 	<a href="prepararListarUsuario">Usuarios</a>
 	<br />
+	<a href="prepararBuscarVoo">Buscar Voo</a>
+	<br />
 	<h2>Voos</h2>
 	<br/>
 	<table>
@@ -14,6 +16,7 @@
 			<th>Numero Voo</th>
 			<th>Cidade de Origem</th>
 			<th>Cidade de Destino</th>
+			<th>Data do voo</th>
 			<th>Hora da Partida</th>
 			<th>Duracao</th>
 			<th>Distancia</th>
@@ -27,6 +30,7 @@
 				<td>${voo.numVoo}</td>
 				<td>${voo.cidadeOrigem}</td>
 				<td>${voo.cidadeDestino}</td>
+				<td>${voo.getDataStr()}</td>
 				<td>${voo.horaPartida}</td>
 				<td>${voo.duracao}</td>
 				<td>${voo.distancia}</td>

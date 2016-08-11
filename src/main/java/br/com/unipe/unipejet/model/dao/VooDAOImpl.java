@@ -85,7 +85,36 @@ public class VooDAOImpl implements VooDAO {
 			em.close();
 		}
 		return null;
-
+	}
+	
+	public List<Voo> searchVoo(Voo voo) {
+		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
+		try {
+			em.getTransaction().begin();
+			
+			String query = "From Voo v Where 1=1";
+			
+			if(voo.getCidadeOrigem() != null && !voo.getCidadeOrigem().isEmpty()){
+				query = query + " and v.cidadeOrigem = '" + voo.getCidadeOrigem() + "'";
+			}			
+			
+			if(voo.getCidadeDestino() != null && !voo.getCidadeDestino().isEmpty()){
+				query = query + " and v.cidadeDestino = '" + voo.getCidadeDestino() + "'";
+			}			
+			
+			if(voo.getDataStr() != null && !voo.getDataStr().isEmpty()){
+				query = query + " and v.data = '" + voo.getDataStr() + "'";
+			}			
+			
+			List<Voo> result = em.createQuery(query).getResultList();
+			
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return null;
 	}
 
 }

@@ -31,36 +31,17 @@ function mascaraData(campoData, e){
 </script>
 
 <body>
-	<h2>Atualização de Voo</h2>
+	<h2>Buscar por Voo</h2>
 	<a href="prepararListarVoo">Voltar</a><br/>
-	<form:form action="updateActionVoo" method="POST"
+	<form:form action="buscarVoo" method="POST"
 		modelAttribute="voo">
-		<form:hidden path="id" />
 		Cidade de origem:
-		<form:input path="cidadeOrigem" />
-		<br />
+		<form:input path="cidadeOrigem" /><br/>
 		Cidade de destino:
-		<form:input path="cidadeDestino" />
-		<br />
-		Data do voo:
-		<form:input path="data" OnKeyUp="mascaraData(this,event);" maxlength="10"/>
-		<br />
-		Hora da partida:
-		<form:input path="horaPartida" />
-		<br />
-		Duração:
-		<form:input path="duracao" />
-		<br />
-		Distância:
-		<form:input path="distancia" />
-		<br />
-		Preço:
-		<form:input path="preco" />
-		<br />
-		Capacidade:
-		<form:input path="capacidade" />
-		<br />			
-
+		<form:input path="cidadeDestino" /><br/>		
+		Data:
+		<form:input path="data" OnKeyUp="mascaraData(this,event);" maxlength="10"/><br/>		
+				
 		<input type="submit" value="Enviar" />
 	</form:form>
 </body>

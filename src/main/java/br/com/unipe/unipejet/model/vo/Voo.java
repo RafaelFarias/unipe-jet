@@ -1,5 +1,6 @@
 package br.com.unipe.unipejet.model.vo;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Set;
 
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Voo extends EntityMaster {
@@ -20,6 +23,7 @@ public class Voo extends EntityMaster {
 	private String preco;
 	private String capacidade;
 
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar data;
 
@@ -28,6 +32,15 @@ public class Voo extends EntityMaster {
 
 	public Calendar getData() {
 		return data;
+	}
+	
+	public String getDataStr() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		String dataStr = "";
+		if(data != null){
+			dataStr = sdf.format(data.getTime());
+		}
+		return dataStr;
 	}
 
 	public void setData(Calendar data) {

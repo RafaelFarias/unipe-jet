@@ -1,5 +1,7 @@
 package br.com.unipe.unipejet.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,6 +57,19 @@ public class VooController {
 	public String remover(Voo id){
 		vooDAO.delete(id);
 		return "redirect:/prepararListarVoo";
+	}
+	
+	@RequestMapping("/prepararBuscarVoo")
+	public String prepararBuscar(Model model){
+		model.addAttribute("voo", new Voo());
+		model.addAttribute("autorizacoes", autorizacaoDAO.listAll());
+		return "/searchVoo";
+	}
+	
+	@RequestMapping("/buscarVoo")
+	public String searchVoo(Voo voo, Model model){
+		model.addAttribute("vooList", vooDAO.searchVoo(voo));
+		return "/listVoo";
 	}
 
 
