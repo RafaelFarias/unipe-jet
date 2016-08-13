@@ -14,14 +14,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 public class Voo extends EntityMaster {
 
-	private String numVoo;
 	private String cidadeOrigem;
 	private String cidadeDestino;
 	private String horaPartida;
 	private String duracao;
-	private String distancia;
+	private Long distancia;
 	private String preco;
-	private String capacidade;
+	private Integer capacidade;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -53,14 +52,6 @@ public class Voo extends EntityMaster {
 
 	public void setUsuarios(Set<Usuario> usuarios) {
 		this.usuarios = usuarios;
-	}
-
-	public String getNumVoo() {
-		return numVoo;
-	}
-
-	public void setNumVoo(String numVoo) {
-		this.numVoo = numVoo;
 	}
 
 	public String getCidadeOrigem() {
@@ -95,11 +86,11 @@ public class Voo extends EntityMaster {
 		this.duracao = duracao;
 	}
 
-	public String getDistancia() {
+	public Long getDistancia() {
 		return distancia;
 	}
 
-	public void setDistancia(String distancia) {
+	public void setDistancia(Long distancia) {
 		this.distancia = distancia;
 	}
 
@@ -111,11 +102,14 @@ public class Voo extends EntityMaster {
 		this.preco = preco;
 	}
 
-	public String getCapacidade() {
+	public Integer getCapacidade() {
+		if(capacidade == null){
+			capacidade = 0;
+		}
 		return capacidade;
 	}
 
-	public void setCapacidade(String capacidade) {
+	public void setCapacidade(Integer capacidade) {
 		this.capacidade = capacidade;
 	}
 

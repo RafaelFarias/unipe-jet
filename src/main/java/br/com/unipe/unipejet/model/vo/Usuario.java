@@ -29,6 +29,7 @@ public class Usuario extends EntityMaster {
 	private String numCartaoMilha;	
 	private String login;
 	private String senha;
+	private Long quantidadeMilhas;
 	
 	@ManyToMany(targetEntity = Voo.class)
 	@JoinTable(name = "voo_usuario", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "voo_id"))
@@ -123,5 +124,16 @@ public class Usuario extends EntityMaster {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Long getQuantidadeMilhas() {
+		if(quantidadeMilhas == null){
+			quantidadeMilhas = 0L;
+		}
+		return quantidadeMilhas;
+	}
+
+	public void setQuantidadeMilhas(Long quantidadeMilhas) {
+		this.quantidadeMilhas = quantidadeMilhas;
 	}
 }

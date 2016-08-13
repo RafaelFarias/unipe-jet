@@ -3,6 +3,9 @@ package br.com.unipe.unipejet.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -39,17 +42,24 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/loginUsuario")
-	public String login(String login, String senha){		
+	public String login(String login, String senha, HttpServletRequest request){		
 		Usuario usuarioLogado = usuarioDAO.login(login, senha);
-		if(usuarioLogado == null){
+		HttpSession session = request.getSession(true);
+		if(usuarioLogado == null){			
 			return "redirect:/";
 		}
+		session.setAttribute("usuarioId",usuarioLogado.getId());
 		return "redirect:/prepararListarVoo";
 	}
 	
 	@RequestMapping("/addUsuario")
-	public String cadastro(Usuario usuario){
+	public String cadastro(Usuario usuario, HttpServletRequest request){
 		usuarioDAO.create(usuario);
+		HttpSession session = request.getSession(true);
+		Long userId = (Long) session.getAttribute("usuarioId");
+		if(userId == null){			
+			return "redirect:/";
+		} 
 		return "redirect:/prepararListarUsuario";
 	}
 	

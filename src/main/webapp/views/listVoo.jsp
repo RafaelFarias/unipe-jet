@@ -22,12 +22,13 @@
 			<th>Distancia</th>
 			<th>Preco</th>
 			<th>Capacidade</th>
+			<th>Comprar</th>
 			<th>Atualizar</th>
-			<th>Remover</th>
+			<th>Remover</th>			
 		</tr>
 		<c:forEach items="${vooList}" var="voo">
 			<tr>
-				<td>${voo.numVoo}</td>
+				<td>${voo.id}</td>
 				<td>${voo.cidadeOrigem}</td>
 				<td>${voo.cidadeDestino}</td>
 				<td>${voo.getDataStr()}</td>
@@ -36,8 +37,16 @@
 				<td>${voo.distancia}</td>
 				<td>${voo.preco}</td>
 				<td>${voo.capacidade}</td>
-				<td><a href="prepararAtualizarVoo?id=${voo.id}">Atualizar</a>
-				<td><a href="removerVoo?id=${voo.id}">Remover</a>
+			
+			<c:if test="${voo.capacidade > 0}">
+				<td><a href="prepararComprarVoo?id=${voo.id}">Comprar</a></td>
+			</c:if>
+			<c:if test="${voo.capacidade < 1}">
+				<td>Sem vagas</td>
+			</c:if>				
+			
+				<td><a href="prepararAtualizarVoo?id=${voo.id}">Atualizar</a></td>
+				<td><a href="removerVoo?id=${voo.id}">Remover</a></td>
 			</tr>
 		</c:forEach>
 	</table>
