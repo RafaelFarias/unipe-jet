@@ -5,7 +5,16 @@
 <body>
 	Unipe-Jet	
 	<br />
-<h1>PAGINA INICIAL</h1>
+	<form:form action="loginUsuario" method="POST">
+		
+		Login:
+		<input type="text" name="login" /><br/>
+		Senha:
+		<input type="password" name="senha"/><br />
+		
+		<input type="submit" value="Enviar" />
+		
+	</form:form>
 		
 	<a href="prepararCadastroUsuario">Cadastre-se</a><br/>
 </body>

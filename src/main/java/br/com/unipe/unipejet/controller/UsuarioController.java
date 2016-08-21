@@ -49,7 +49,7 @@ public class UsuarioController {
 			return "redirect:/";
 		}
 		session.setAttribute("usuarioId",usuarioLogado.getId());
-		return "redirect:/";
+		return "redirect:/prepararListarVoo";
 	}
 	
 	@RequestMapping("/addUsuario")
@@ -68,8 +68,7 @@ public class UsuarioController {
 		model.addAttribute("usuarioList", usuarioDAO.listAll());
 		return "/listUsuario";
 	}
-	
-	
+
 	@RequestMapping("/prepararAtualizarUsuario")
 	public String prepararUpdate(Long id, Model model){
 		model.addAttribute("usuario", usuarioDAO.findById(id));

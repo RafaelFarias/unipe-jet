@@ -70,6 +70,10 @@ public class VooController {
 				
 		HttpSession session = request.getSession(true);
 		Long userId = (Long) session.getAttribute("usuarioId");
+		
+		if(userId == null)
+			userId = 1L;
+		
 		Usuario usuario = usuarioDAO.findById(userId);
 		Voo voo = vooDAO.findById(id);	
 		

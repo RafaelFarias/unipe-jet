@@ -5,7 +5,7 @@
 <body>
 	Unipe-Jet	
 	<br />
-	<form action="j_spring_security_check" method="POST">
+	<form action="loginUsuario" method="POST">
 		
 		Login:
 		<input type="text" name="j_username" /><br/>
