@@ -5,7 +5,16 @@
 <body>
 	Unipe-Jet	
 	<br />
-<h1>PAGINA INICIAL</h1>
+	<form action="j_spring_security_check" method="POST">
+		
+		Login:
+		<input type="text" name="j_username" /><br/>
+		Senha:
+		<input type="password" name="j_password"/><br />
+		
+		<input type="submit" value="Enviar" />
+		
+	</form>
 		
 	<a href="prepararCadastroUsuario">Cadastre-se</a><br/>
 </body>

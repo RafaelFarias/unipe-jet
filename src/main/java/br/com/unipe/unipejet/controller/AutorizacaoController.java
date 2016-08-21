@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.unipe.unipejet.model.dao.AutorizacaoDAO;
 import br.com.unipe.unipejet.model.vo.Autorizacao;
@@ -13,6 +14,12 @@ public class AutorizacaoController {
 	
 	@Autowired
 	private AutorizacaoDAO autorizacaoDAO;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET) 
+	public String displayAutorizacao(Model model) { 
+	    model.addAttribute("autorizacao", new Autorizacao()); 
+	    return "autorizacao"; 
+	}
 	
 	@RequestMapping("/prepararCadastroAutorizacao")
 	public String prepararCadastro(Model model){

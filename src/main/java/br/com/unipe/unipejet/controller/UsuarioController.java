@@ -49,7 +49,7 @@ public class UsuarioController {
 			return "redirect:/";
 		}
 		session.setAttribute("usuarioId",usuarioLogado.getId());
-		return "redirect:/prepararListarVoo";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/addUsuario")

@@ -1,8 +1,11 @@
 package br.com.unipe.unipejet.model.dao;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
 
 import org.springframework.stereotype.Repository;
 
@@ -15,8 +18,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public void create(Usuario usuario) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
+			if(!isMaiorIdade(usuario))
+				throw new Exception("Menor de 18 anos!");
 			em.getTransaction().begin();
 			em.persist(usuario);
+			this.gerarNumCartaoMilhas(em, usuario);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			if (em.getTransaction().isActive()) {
@@ -31,6 +37,15 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public void update(Usuario usuario) {
 		EntityManager em = EntityManagerUtil.getEntityManagerFactory().createEntityManager();
 		try {
+			if(!isMaiorIdade(usuario))
+				throw new Exception("Menor de 18 anos!");
+			
+			Usuario usuarioPersistido = this.findById(usuario.getId());
+			if (!usuario.getNumCartaoMilha().equals(
+					usuarioPersistido.getNumCartaoMilha())) {
+				throw new Exception("Não é possível alterar o cartão de milhas");
+			}
+			
 			em.getTransaction().begin();
 			em.merge(usuario);
 			em.getTransaction().commit();
@@ -99,7 +114,28 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			em.close();
 		}
 		return null;
-
 	}
+	
+	private void gerarNumCartaoMilhas(EntityManager em, Usuario u){
 
+			Calendar calendar = Calendar.getInstance();
+			int ano = calendar.get(Calendar.YEAR);
+			
+			String numCartaoMilha = ano + "/0000" + u.getId();
+			u.setNumCartaoMilha(numCartaoMilha);
+			em.merge(u);
+	}
+	
+	private boolean isMaiorIdade(Usuario usuario){
+		
+		Calendar dtNascimento = usuario.getDataNascimento();
+		Calendar dtAtual = Calendar.getInstance();
+		
+		int anoNascimento = dtNascimento.get(Calendar.YEAR);
+		int anoAtual = dtAtual.get(Calendar.YEAR);
+		if(anoAtual - anoNascimento > 18)
+			return true;
+		return false;
+	}
+	
 }
