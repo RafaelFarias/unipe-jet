@@ -118,7 +118,7 @@
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 <input type="text" class="form-control" id="nmUsuario" name="nmUsuario"
-                                       placeholder="Nome Completo" required>
+                                       placeholder="Nome Completo" value="Admin" required>
                             </div>
                             <div class="col-md-4 form-group">
                                 <style>
@@ -129,12 +129,12 @@
                                 <select type="text" id="tipoDocumento" name="tipoDocumento" class="form-control"
                                         placeholder="Escolha o Tipo de Documento" required/>
                                 <option value="" disabled selected hidden> Tipo de Documento</option>
-                                <option value="RG">RG</option>
+                                <option value="RG" selected>RG</option>
                                 <option value="CPF">CPF</option>
                                 </select>
                             </div>
-                            <div class="col-md-4 form-group" id="divCpf" style="display: none">
-                                <input type="text" name="cpf " class="form-control" placeholder="CPF"/>
+                            <div class="col-md-4 form-group" id="divCpf" style="display: block">
+                                <input type="text" name="cpf " class="form-control" placeholder="CPF" value="867.675.550-70"/>
                             </div>
                             <div class="col-md-4 form-group" id="divRg" style="display: none">
                                 <input type="text" name="rg " class="form-control" placeholder="RG"/>
@@ -142,18 +142,17 @@
                         </div>
 
                         <div class="row">
-
                             <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="datepicker form-control" id="dtIdade" placeholder="Idade" required>
+                                <input type="text" class="datepicker form-control" id="dtIdade" placeholder="Idade" required value="15/08/1990">
                                 <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-12 form-group">
                                 <input type="text" class="form-control" id="dsLogin" name="dsLogin"
-                                       placeholder="Login" required>
+                                       placeholder="Login" required value="admin">
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-12 form-group">
-                                <input type="text" class="form-control" id="dsSenha" name="dsSenha"
-                                       placeholder="Senha" required>
+                                <input type='password' class="form-control" id="dsSenha" name="dsSenha"
+                                       placeholder="Senha" required value="123456">
                             </div>
                         </div>
                     </fieldset>
