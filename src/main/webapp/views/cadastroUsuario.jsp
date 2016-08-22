@@ -6,6 +6,12 @@
 <html>
 
 <script>
+
+$(function(){
+	$('#rgInput').hide();
+	$('#cpfInput').hide();
+});
+
 function mascaraData(campoData, e){
     var data = campoData.value;
     
@@ -28,38 +34,54 @@ function mascaraData(campoData, e){
         return true;
     }
 }
+
+function changeFunc() {
+	   var selectBox = document.getElementById("TipoDocumentoCombo");
+	   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+	   
+	   if(selectedValue == "RG"){
+		   $('#rgInput').show();
+		   $('#cpfInput').hide();
+	   } 
+	   
+	   if(selectedValue == "CPF"){
+		   $('#cpfInput').show();
+		   $('#rgInput').hide();
+	   }
+	}
+
 </script>
 
 <body>
 	<h2>Cadastro de Usuario</h2>
 	<a href="prepararListarUsuario">Voltar</a><br/>
 	<form:form action="addUsuario" method="POST"
-		modelAttribute="usuario">
+		modelAttribute="usuario" id="addUsuarioForm">
 		Nome completo:
-		<form:input path="nome" /><br/>
+		<form:input required="required" path="nome" /><br/>
 		Email:
-		<form:input path="email" /><br/>
+		<form:input required="required" path="email" /><br/>
 		Tipo de documento:
-		<select size="1" id="TipoDocumentoCombo" name="TipoDocumentoCombo">
+		<select size="1" id="TipoDocumentoCombo" name="TipoDocumentoCombo" onchange="changeFunc();">
 			<option selected value=""></option>
 			<option value="RG">RG</option>
 			<option value="CPF">CPF</option>
 		</select><br/>
-		<c:if test="${x = 'RG'}">
+		<span id="rgInput">
 			RG:
-			<form:input path="rg" /><br/>
-		</c:if>
-		<c:if test="${x = 'CPF'}">		
+			<form:input display="none" path="rg" /><br/>
+		</span>
+		<span id="cpfInput">
 			CPF:
-			<form:input path="cpf" /><br/>
-		</c:if>
+			<form:input display="none" path="cpf" /><br/>
+		</span>
 		Data de Nascimento:				
 		<form:input id="dataNascimentoInput" OnKeyUp="mascaraData(this,event);" path="dataNascimento" maxlength="10"/>
 		<br/>
 		Login:
-		<form:input path="login" /><br/>
+		<form:input required="required" path="login" /><br/>
 		Senha:
-		<form:password path="senha"/><br />
+		<form:password required="required" path="senha"/><br />
 		
 		Autorizacao:
 		<form:select path="autorizacao.id" items="${autorizacoes}"
