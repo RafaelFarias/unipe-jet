@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Unipê Jet | Login</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <section class="login_content">
+                <form id="formLogin" data-parsley-validate action="index.html">
+                    <h1>Unipê Jet</h1>
+
+                    <div>
+                        <input type="text" class="form-control" placeholder="Login" required=""/>
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" placeholder="Senha" required=""/>
+                    </div><br>
+                    <div>
+                        <button type="submit" class="btn btn-default submit">Enviar</button>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <p class="change_link">
+                            <a href="#signup" class="to_register"> Crie sua conta </a>
+                        </p>
+
+                        <div class="clearfix"></div>
+                        <br/>
+
+                        <div>
+                            <h1><i class="fa fa-fighter-jet"></i> Unipê Jet</h1>
+                            <p>©2016 Todos direitos reservados.</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+            <section class="login_content">
+                <form id="formCriarConta" data-parsley-validate action="index.html">
+                    <h1>Criar Conta</h1>
+                    <h2>Cartão de Milha: <strong><span id="nrCartaoMilhaSpan"></span></strong></h2>
+                    <input type="hidden" name="nrCartaoMilha" id="nrCartaoMilha"/>
+
+                    <div>
+                        <input type="text" class="form-control" placeholder="Nome Completo" required/>
+                    </div>
+                    <div>
+                        <style>
+                            select:invalid {
+                                color: grey;
+                            }
+                        </style>
+                        <select type="text" id="tipoDocumento" name="tipoDocumento" class="form-control" placeholder="Escolha o Tipo de Documento" required />
+                        <option value="" disabled selected hidden> Tipo de Documento</option>
+                        <option value="RG">RG</option>
+                        <option value="CPF">CPF</option>
+                        </select>
+                    </div><br>
+                    <div style="display: none" id="divCpf">
+                        <input type="text" name="cpf "class="form-control" placeholder="CPF" />
+                    </div>
+                    <div style="display: none" id="divRg">
+                        <input type="text" name="rg "class="form-control" placeholder="RG"/>
+                    </div>
+                    <div>
+                        <input type="text" name="idade" id="idade" class="form-control date-picker" placeholder="Idade" required=""/>
+                    </div>
+                    <div>
+                        <input type="login" name="login" id="login" class="form-control" placeholder="Login" required=""/>
+                    </div><br>
+                    <div>
+                        <input type="senha" name="senha" id="senha" class="form-control" placeholder="Senha" required=""/>
+                    </div><br>
+                    <div>
+                        <button type="submit" class="btn btn-default submit">Enviar</button>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <p class="change_link">Já possui conta?
+                            <a href="#signin" class="to_register"> <u>Login</u> </a>
+                        </p>
+
+                        <div class="clearfix"></div>
+                        <br/>
+
+                        <div>
+                            <h1><i class="fa fa-fighter-jet"></i> Unipê Jet</h1>
+                            <p>©2016 Todos direitos reservados</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.js"></script>
+<!-- Parsley -->
+<script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+<script src="../vendors/parsleyjs/src/i18n/pt-br.js"></script>
+
+<script src="../build/js/login.js"></script>
+
+</body>
+</html>
