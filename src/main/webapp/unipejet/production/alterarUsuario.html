@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Unipê Jet! | Pesquisar Voos</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-fighter-jet"></i> <span>Unipê Jet</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile">
+                    <div class="profile_pic">
+                        <img src="images/user.png" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>Bem vindo,</span>
+
+                        <h2>USUÁRIO</h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>Menu</h3>
+                        <ul class="nav side-menu">
+                            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="index.html">Pesquisar Voos</a></li>
+                                    <li><a href="alterarUsuario.html" class="active">Alterar Usuário</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-plus-square"></i> Cadastro <span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="form.html">Usuário</a></li>
+                                    <li><a href="form_advanced.html">Voo</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="images/user.png" alt="">USUÁRIO
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="alterarUsuario.html"> Alterar Usuário</a></li>
+                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3><i class="fa fa-edit"></i> Alterar Usuário</h3><br>
+                        <h4>Cartão de Milha: <strong><span id="nrCartaoMilhaSpan"></span></strong></h4>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <br>
+
+                <form class="form-horizontal" id="formAlterarUsuario" data-parsley-validate action="alterarUsuario.html">
+
+                    <fieldset>
+                        <legend>Alterar dados do Usuário</legend>
+
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <input type="text" class="form-control" id="nmUsuario" name="nmUsuario"
+                                       placeholder="Nome Completo" required>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <style>
+                                    select:invalid {
+                                        color: grey;
+                                    }
+                                </style>
+                                <select type="text" id="tipoDocumento" name="tipoDocumento" class="form-control"
+                                        placeholder="Escolha o Tipo de Documento" required/>
+                                <option value="" disabled selected hidden> Tipo de Documento</option>
+                                <option value="RG">RG</option>
+                                <option value="CPF">CPF</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 form-group" id="divCpf" style="display: none">
+                                <input type="text" name="cpf " class="form-control" placeholder="CPF"/>
+                            </div>
+                            <div class="col-md-4 form-group" id="divRg" style="display: none">
+                                <input type="text" name="rg " class="form-control" placeholder="RG"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                                <input type="text" class="datepicker form-control" id="dtIdade" placeholder="Idade" required>
+                                <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12 form-group">
+                                <input type="text" class="form-control" id="dsLogin" name="dsLogin"
+                                       placeholder="Login" required>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12 form-group">
+                                <input type="text" class="form-control" id="dsSenha" name="dsSenha"
+                                       placeholder="Senha" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Operação</legend>
+                        <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                            <button type="submit" class="btn btn-success">Alterar</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            Unipê Jet - Projeto Acadêmico
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+</div>
+</div>
+
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="js/moment/moment.min.js"></script>
+<script src="js/datepicker/daterangepicker.js"></script>
+<!-- Parsley -->
+<script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+<script src="../vendors/parsleyjs/src/i18n/pt-br.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.js"></script>
+<script src="../build/js/alterarUsuario.js"></script>
+<!-- /gauge.js -->
+</body>
+</html>
