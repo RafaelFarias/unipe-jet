@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d00bb7-cfcc-429e-9832-20634e821ac6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuario.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/unipejet/build/js/usuario.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuarioAdd.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuarioEdit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/unipejet/production/alterarUsuario.html" afterPath="$PROJECT_DIR$/src/main/webapp/unipejet/production/alterarUsuario.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/unipejet/build/js/alterarUsuario.js" afterPath="$PROJECT_DIR$/src/main/webapp/unipejet/build/js/alterarUsuario.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/unipejet/production/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/unipejet/production/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuario.html" afterPath="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuario.html" />
     </list>
     <ignored path="unipe-jet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usuario.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="usuario.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/unipejet/production/usuario.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.115385">
-              <caret line="192" column="32" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.9599529">
+              <caret line="197" column="41" selection-start-line="184" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -84,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usuarioAdd.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="usuarioAdd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/unipejet/production/usuarioAdd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0600706">
+            <state vertical-scroll-proportion="-13.038462">
               <caret line="156" column="43" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -129,10 +122,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuarioEdit.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuarioAdd.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/unipejet/build/usuario.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuario.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/unipejet/build/js/usuario.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/unipejet/build/js/alterarUsuario.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/unipejet/build/js/usuarioAdd.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/unipejet/production/usuario.html" />
       </list>
     </option>
   </component>
@@ -462,14 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/unipejet/production/usuario.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.115385">
-          <caret line="192" column="32" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/unipejet/build/js/usuario.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -496,11 +481,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/unipejet/production/usuarioAdd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0600706">
+        <state vertical-scroll-proportion="-13.038462">
           <caret line="156" column="43" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
           <folding>
             <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/unipejet/production/usuario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9599529">
+          <caret line="197" column="41" selection-start-line="184" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
