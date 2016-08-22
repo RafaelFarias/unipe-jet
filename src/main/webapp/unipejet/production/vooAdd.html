@@ -101,10 +101,11 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3><i class="fa fa-edit"></i> Alterar Usuário</h3><br>
-                        <h4>Cartão de Milha: <strong><span id="nrCartaoMilhaSpan"></span></strong></h4>
+                        <h3><i class="fa fa-plus-square"></i> Cadastrar Voo</h3><br>
                     </div>
                 </div>
+
+                <div class="clearfix"></div>
 
                 <div class="clearfix"></div>
 
@@ -112,64 +113,58 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Alterar dados do Usuário</h2>
+                                <h2>Lista de Voo</h2>
 
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
 
-                                <form class="form-horizontal" id="formAlterarUsuario" data-parsley-validate
-                                      action="alterarUsuario.html">
+                                <form class="form-horizontal" id="formAddVoo" data-parsley-validate action="voo.html">
 
                                     <div class="row">
-                                        <div class="col-md-4 form-group">
-                                            <input type="text" class="form-control" id="nmUsuario" name="nmUsuario"
-                                                   placeholder="Nome Completo" value="Admin" required>
+                                        <div class="col-md-3 form-group">
+                                            <input type="text" class="form-control" id="origem" name="origem"
+                                                   placeholder="Cidade de Origem" value="" required>
                                         </div>
-                                        <div class="col-md-4 form-group">
-                                            <style>
-                                                select:invalid {
-                                                    color: grey;
-                                                }
-                                            </style>
-                                            <select type="text" id="tipoDocumento" name="tipoDocumento"
-                                                    class="form-control"
-                                                    placeholder="Escolha o Tipo de Documento" required/>
-                                            <option value="" disabled selected hidden> Tipo de Documento</option>
-                                            <option value="RG" selected>RG</option>
-                                            <option value="CPF">CPF</option>
-                                            </select>
+                                        <div class="col-md-3 form-group">
+                                            <input type="text" class="form-control" id="destino" name="destino"
+                                                   placeholder="Cidade de Destino" value="" required>
                                         </div>
-                                        <div class="col-md-4 form-group" id="divCpf" style="display: block">
-                                            <input type="text" name="cpf " class="form-control" placeholder="CPF"
-                                                   value="867.675.550-70"/>
+                                        <div class="col-md-3 form-group">
+                                            <input type="text" class="form-control datepicker" id="dtPartida"
+                                                   name="dtPartida"
+                                                   placeholder="Data de Partida" value="" required>
                                         </div>
-                                        <div class="col-md-4 form-group" id="divRg" style="display: none">
-                                            <input type="text" name="rg " class="form-control" placeholder="RG"/>
+                                        <div class="col-md-3 form-group">
+                                            <input type="text" class="form-control " id="hrPartida"
+                                                   name="hrPartida"
+                                                   placeholder="Horário de Partida" value="" required>
                                         </div>
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" class="datepicker form-control" id="dtIdade"
-                                                   placeholder="Idade" required value="15/08/1990">
-                                                <span class="fa fa-calendar form-control-feedback right"
-                                                      aria-hidden="true"></span>
+                                        <div class="col-md-3 form-group">
+                                            <input type="text" class="form-control" id="duracao" name="duracao"
+                                                   placeholder="Duração da Viagem" value="" required>
                                         </div>
-                                        <div class="col-md-4 col-sm-6 col-xs-12 form-group">
-                                            <input type="text" class="form-control" id="dsLogin" name="dsLogin"
-                                                   placeholder="Login" required value="admin">
+                                        <div class="col-md-3 form-group">
+                                            <input type="text" class="form-control" id="distancia" name="distancia"
+                                                   placeholder="Distância da Viagem" value="" required>
                                         </div>
-                                        <div class="col-md-4 col-sm-6 col-xs-12 form-group">
-                                            <input type='password' class="form-control" id="dsSenha" name="dsSenha"
-                                                   placeholder="Senha" required value="123456">
+                                        <div class="col-md-3 form-group">
+                                            <input type="text" class="form-control" id="valor" name="valor"
+                                                   placeholder="Valor da Passagem" value="" required>
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <input type="number" class="form-control" max="35" id="capacidade" name="capacidade"
+                                                   placeholder="Quantidade de Passageiros" value="" required>
                                         </div>
                                     </div>
 
                                     <fieldset>
                                         <legend>Operação</legend>
                                         <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <button type="submit" class="btn btn-success">Alterar</button>
+                                            <button type="submit" class="btn btn-success">Salvar</button>
+                                            <a href="voo.html" class="btn btn-danger">Cancelar</a>
                                         </div>
                                     </fieldset>
                                 </form>
@@ -209,7 +204,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="../build/js/custom.js"></script>
-<script src="../build/js/alterarUsuario.js"></script>
+<script src="../build/js/usuario.js"></script>
 <!-- /gauge.js -->
 </body>
 </html>
