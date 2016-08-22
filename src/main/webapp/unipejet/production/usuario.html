@@ -54,13 +54,13 @@
                             <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="index.html">Pesquisar Voos</a></li>
-                                    <li><a href="alterarUsuario.html" class="active">Alterar Usuário</a></li>
+                                    <li><a href="alterarUsuario.html">Alterar Usuário</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-plus-square"></i> Cadastro <span
                                     class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="usuario.html">Usuário</a></li>
+                                    <li><a href="usuario.html" class="active">Usuário</a></li>
                                     <li><a href="form_advanced.html">Voo</a></li>
                                 </ul>
                             </li>
@@ -102,10 +102,11 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3><i class="fa fa-edit"></i> Alterar Usuário</h3><br>
-                        <h4>Cartão de Milha: <strong><span id="nrCartaoMilhaSpan"></span></strong></h4>
+                        <h3><i class="fa fa-plus-square"></i> Cadastrar Usuário</h3><br>
                     </div>
                 </div>
+
+                <div class="clearfix"></div>
 
                 <div class="clearfix"></div>
 
@@ -113,67 +114,46 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Alterar dados do Usuário</h2>
+                                <h2>Lista de Usuário</h2>
 
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Identificador</th>
+                                        <th>Nome</th>
+                                        <th>Documento</th>
+                                        <th>Idade</th>
+                                        <th>Login</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>João Fonseca</td>
+                                        <td>CPF: 751.312.870-73</td>
+                                        <td>26 anos</td>
+                                        <td>joaofonseca</td>
+                                        <td>joaofonseca</td>
+                                        <td>
+                                            <a href="usuarioEdit.html" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar
+                                            </a>
+                                            <a id="deleteUser" href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>
+                                                Deletar </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
 
-                                <form class="form-horizontal" id="formAlterarUsuario" data-parsley-validate
-                                      action="alterarUsuario.html">
-
-                                    <div class="row">
-                                        <div class="col-md-4 form-group">
-                                            <input type="text" class="form-control" id="nmUsuario" name="nmUsuario"
-                                                   placeholder="Nome Completo" value="Admin" required>
-                                        </div>
-                                        <div class="col-md-4 form-group">
-                                            <style>
-                                                select:invalid {
-                                                    color: grey;
-                                                }
-                                            </style>
-                                            <select type="text" id="tipoDocumento" name="tipoDocumento"
-                                                    class="form-control"
-                                                    placeholder="Escolha o Tipo de Documento" required/>
-                                            <option value="" disabled selected hidden> Tipo de Documento</option>
-                                            <option value="RG" selected>RG</option>
-                                            <option value="CPF">CPF</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4 form-group" id="divCpf" style="display: block">
-                                            <input type="text" name="cpf " class="form-control" placeholder="CPF"
-                                                   value="867.675.550-70"/>
-                                        </div>
-                                        <div class="col-md-4 form-group" id="divRg" style="display: none">
-                                            <input type="text" name="rg " class="form-control" placeholder="RG"/>
-                                        </div>
+                                <fieldset>
+                                    <legend>Operação</legend>
+                                    <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                                        <a href="usuarioAdd.html" class="btn btn-success">Adicionar</a>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <input type="text" class="datepicker form-control" id="dtIdade"
-                                                   placeholder="Idade" required value="15/08/1990">
-                                                <span class="fa fa-calendar form-control-feedback right"
-                                                      aria-hidden="true"></span>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6 col-xs-12 form-group">
-                                            <input type="text" class="form-control" id="dsLogin" name="dsLogin"
-                                                   placeholder="Login" required value="admin">
-                                        </div>
-                                        <div class="col-md-4 col-sm-6 col-xs-12 form-group">
-                                            <input type='password' class="form-control" id="dsSenha" name="dsSenha"
-                                                   placeholder="Senha" required value="123456">
-                                        </div>
-                                    </div>
-
-                                    <fieldset>
-                                        <legend>Operação</legend>
-                                        <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
-                                            <button type="submit" class="btn btn-success">Alterar</button>
-                                        </div>
-                                    </fieldset>
-                                </form>
+                                </fieldset>
 
                             </div>
                         </div>
@@ -210,7 +190,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="../build/js/custom.js"></script>
-<script src="../build/js/alterarUsuario.js"></script>
+<script src="../build/js/usuario.js"></script>
 <!-- /gauge.js -->
 </body>
 </html>
